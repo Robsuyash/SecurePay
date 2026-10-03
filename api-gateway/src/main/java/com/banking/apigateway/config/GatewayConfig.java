@@ -20,7 +20,7 @@ public class GatewayConfig {
     public RouterFunction<ServerResponse> accountServiceRoute() {
         return route("account-service")
                 .route(RequestPredicates.path("/api/v1/accounts/**"), http())
-                .before(uri("http://localhost:8095"))
+                .before(uri("http://account-service:8095"))
                 .build();
     }
 
@@ -28,7 +28,7 @@ public class GatewayConfig {
     public RouterFunction<ServerResponse> transactionServiceRoute() {
         return route("transaction-service")
                 .route(RequestPredicates.path("/api/v1/transactions/**"), http())
-                .before(uri("http://localhost:8094"))
+                .before(uri("http://transaction-service:8094"))
                 .build();
     }
 
@@ -36,7 +36,7 @@ public class GatewayConfig {
     public RouterFunction<ServerResponse> paymentServiceRoute() {
         return route("payment-service")
                 .route(RequestPredicates.path("/api/v1/payments/**"), http())
-                .before(uri("http://localhost:8093"))
+                .before(uri("http://payment-service:8093"))
                 .build();
     }
 
@@ -44,7 +44,7 @@ public class GatewayConfig {
     public RouterFunction<ServerResponse> fraudDetectionServiceRoute() {
         return route("fraud-detection-service")
                 .route(RequestPredicates.path("/api/fraud/**"), http())
-                .before(uri("http://localhost:8091"))
+                .before(uri("http://fraud-detection:8091"))
                 .build();
     }
 
@@ -52,7 +52,7 @@ public class GatewayConfig {
     public RouterFunction<ServerResponse> notificationServiceRoute() {
         return route("notification-service")
                 .route(RequestPredicates.path("/api/notifications/**"), http())
-                .before(uri("http://localhost:8092"))
+                .before(uri("http://notification-service:8092"))
                 .build();
     }
 }
